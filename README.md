@@ -1,2 +1,1 @@
-# brycepersonal
-Personal Website
+<h2>Bryce Peterson's Personal Website</h2>
