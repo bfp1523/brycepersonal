@@ -9,6 +9,8 @@
 				font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 			}
 			footer {
+				margin:0;
+				border:1px solid lime;
 				font-size: smaller;
 				background-color:gray;
     			color:white;
@@ -17,6 +19,8 @@
     			padding:15px; 
 			}
 			header {
+				margin:0;
+				border:1px solid lime;
 				font-size: 150%;
 				background-color:gray;
     			color:white;
@@ -25,6 +29,7 @@
     			padding:25px; 
 			}
 			nav {
+				margin:0;
     			line-height:30px;
     			text-align: center;
     			background-color: white;
@@ -36,11 +41,11 @@
 			}
 			a:link {
 				text-decoration: none;
-				color: #333399;
+				color: lime;
 			}
 			a:visited {
 				text-decoration: none;
-				color: #333399;
+				color: lime;
 			}
 			a:hover {
 				text-decoration: underline;
@@ -65,16 +70,15 @@
 			<a href="/" style="text-decoration:none;color:white;">Bryce Peterson's Home Page</a>
 		</header>
 		<nav><br>
-			<a href="">Course Work</a><br>
-			<a href="">Projects</a><br>
-			<a href="resume/">Resume</a><br>
-			<a href="contact/">Contact</a><br>
+			<a href="/projects/">Projects</a><br>
+			<a href="/resume/">Resume</a><br>
+			<a href="/contact/">Contact</a><br>
 		</nav>
 		<div id='content'>
 			{% block content %}{% endblock %}
 		</div>
 		<footer>
-			Designed by Bryce Peterson 2015. Copyright © 2015.
+			Designed by Bryce Peterson. Copyright © 2015.
 		</footer>
 	</body>
 </html>
