@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta name="author" content="Bryce Peterson">
+		<meta name="description" content="Bryce, Peterson, HTML, Home">
 		<style>
 			body {
 				background-color: black;
@@ -10,7 +12,7 @@
 			}
 			footer {
 				margin:0;
-				border:1px solid lime;
+				border:2px solid lime;
 				font-size: smaller;
 				background-color:gray;
     			color:white;
@@ -20,7 +22,7 @@
 			}
 			header {
 				margin:0;
-				border:1px solid lime;
+				border:2px solid lime;
 				font-size: 150%;
 				background-color:gray;
     			color:white;
@@ -29,7 +31,7 @@
     			padding:25px; 
 			}
 			nav {
-				margin:0;
+				margin-right:20px;
     			line-height:30px;
     			text-align: center;
     			background-color: white;
@@ -38,6 +40,7 @@
 			    width:200px;
     			float:left;
     			padding:5px; 
+    			a.link
 			}
 			a:link {
 				text-decoration: none;
@@ -58,7 +61,36 @@
 				padding: 20px;
 				text-indent: 20px;
 			}
+			#infobar {
+				background:#1A1A1A;
+				padding:15px;
+				margin:0px;
+				width:100%;
+				border:2px solid lime;
+			}
 		</style>
+
+		<script>
+		function changeFont() {
+			document.getElementById("content").style.fontSize = '2em';
+			document.getElementById("header").style.fontSize = '2em';
+			document.getElementById("nav").style.fontSize = '2em';
+		}
+		function changeColor() {
+			var hexcolor = String(Math.floor(Math.random() * 1000000));
+			document.getElementById("header").style.border = "2px solid #" + String(hexcolor);
+			document.getElementById("footer").style.border = "2px solid #" + String(hexcolor);
+			var links = document.getElementsByTagName("a");
+    		for(var i = 0; i < links.length; i++) {
+        		if(links[i].href && links[i].style.color != 'white') {
+            		links[i].style.color = "#" + hexcolor;  
+        		}
+    		}
+    		if(document.getElementById("infobar")){
+				document.getElementById("infobar").style.border = "2px solid #" + String(hexcolor);
+			}
+		}
+		</script>
 
 		{% block head %}
 		<title>Bryce's Website</title>
@@ -66,18 +98,20 @@
 	</head>
 
 	<body>
-		<header>
+		<header id="header">
 			<a href="/" style="text-decoration:none;color:white;">Bryce Peterson's Home Page</a>
+			<img src="http://www.clker.com/cliparts/e/v/A/R/K/t/transparent-magnifying-glass-hi.png" style="float:right;height:40px;width:40px;" type="button" onclick="changeFont()">
+			<img src="https://color.adobe.com/build2.0.0-buildNo/resource/img/kuler/color_wheel_730.png" style="float:right;height:40px;width:40px;margin:5px;bottom:10px" type="button" onclick="changeColor()">
 		</header>
-		<nav><br>
+		<nav id="nav"><br>
 			<a href="/projects/">Projects</a><br>
 			<a href="/resume/">Resume</a><br>
 			<a href="/contact/">Contact</a><br>
 		</nav>
-		<div id='content'>
+		<div id="content">
 			{% block content %}{% endblock %}
 		</div>
-		<footer>
+		<footer id="footer">
 			Designed by Bryce Peterson. Copyright © 2015.
 		</footer>
 	</body>
